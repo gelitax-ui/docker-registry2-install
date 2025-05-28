@@ -3,3 +3,5 @@ shell脚本安装docker仓库，用docker运行
 并定时清理每个仓库的历史tag
 
 清理tag是以digest为准，保留最近5个digest
+
+如果多个tag对应同一个digest，只要这个digest被保留了，那么这个digest的所有tag都不会被删除
