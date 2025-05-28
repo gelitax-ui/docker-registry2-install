@@ -91,11 +91,11 @@ for REPO in $REPO_LIST; do
 done
 
 echo "🚮 执行 Registry 垃圾回收..."
-docker stop registry
-docker run --rm -v REG_HOME/data:/var/lib/registry \
-  -v REG_HOME/config/config.yml:/etc/docker/registry/config.yml \
-  registry:2 garbage-collect /etc/docker/registry/config.yml
-docker start registry
+#docker stop registry
+#docker run --rm -v /home/ec2-user/registry/data:/var/lib/registry \
+#  -v /home/ec2-user/registry/config/config.yml:/etc/docker/registry/config.yml \
+#  registry:2 garbage-collect /etc/docker/registry/config.yml
+#docker start registry
 
 echo "✅ 所有仓库清理完毕"
 EOS
