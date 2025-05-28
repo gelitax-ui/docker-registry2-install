@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-REG_HOME="/home/ec2-user/registry"
+REG_HOME="$HOME/registry"
 CONFIG_YML="$REG_HOME/config/config.yml"
 CLEAN_SCRIPT="$REG_HOME/cleanup_all.sh"
 CRON_MARKER="# docker-registry-cleanup-task"
@@ -92,8 +92,8 @@ done
 
 echo "🚮 执行 Registry 垃圾回收..."
 docker stop registry
-docker run --rm -v /home/ec2-user/registry/data:/var/lib/registry \
-  -v /home/ec2-user/registry/config/config.yml:/etc/docker/registry/config.yml \
+docker run --rm -v REG_HOME/data:/var/lib/registry \
+  -v REG_HOME/config/config.yml:/etc/docker/registry/config.yml \
   registry:2 garbage-collect /etc/docker/registry/config.yml
 docker start registry
 
