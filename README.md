@@ -1,0 +1,3 @@
+shell脚本安装docker仓库，用docker运行
+并定时清理每个仓库的历史tag
+清理tag是以digest为准，保留最近5个digest
